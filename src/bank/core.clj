@@ -1,5 +1,5 @@
 (ns bank.core
-  (:use [noir.core :only [defpartial]]
+  (:use [noir.core :only [defpartial defpage]]
         [hiccup.page-helpers :only [include-css html5]]))
 
 (defn stuff [fred]
@@ -7,6 +7,6 @@
     
 (defn tryme
   ([asdf] (+ asdf 1))
-  ([a b]  (+ a b)))
+;  ([a b]  (+ a b)))
   
 (defpage "/" {} "hi")

@@ -1,8 +1,33 @@
 (ns bank.server
-  (:require [noir.core] [noir.server :as server]))
+  (:use     (noir.core) (hiccup.core) (hiccup.form-helpers) (hiccup.page-helpers))
+  (:require [noir.server :as server] )
+)
+
+(defpartial signup_form []
+  (label "holder_name" "Your Name:"))
   
-(noir.core/defpage "/" []
-  "hey there")
+(defpage "/" []
+  (html5
+    [:head ""]
+    [:body
+      (signup_form)]
+  )
+)
+
+
+(noir.core/defpage "/echo_post" []
+  (html
+    [:html
+      [:head ""]
+      [:body
+        [:p "hi"]
+        [:ul
+          [:li "a thing"]
+          [:li "another thing"]
+          [:li "the last thing"]
+        ]]
+    ]
+  ))
 
 (defn -main [& m]
   (server/start 8080 {:ns `bank.server}))
